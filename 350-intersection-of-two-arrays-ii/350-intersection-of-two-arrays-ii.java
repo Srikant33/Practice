@@ -10,7 +10,7 @@ class Solution {
             }
             else
                 map.put(nums1[i],1);
-                                            System.out.println(nums1[i]);
+                                            // System.out.println(nums1[i]);
 
         }
         int a=0;
