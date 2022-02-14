@@ -10,7 +10,7 @@ class Solution {
             }
             
             hm.put(s.charAt(i),i);
-            System.out.println(s.charAt(i));
+            // System.out.println(s.charAt(i));
             count++;
             
             if (max < count-from-1 ){
