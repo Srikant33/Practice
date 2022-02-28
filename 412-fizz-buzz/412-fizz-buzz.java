@@ -1,15 +1,20 @@
 class Solution {
+    LinkedList<String> ret=new LinkedList<String>();
     public List<String> fizzBuzz(int n) {
-        List<String> ret=new ArrayList<String>();
-        for (int i=1;i<=n;i++){
-            String s="";
-            if (i%3==0)
-                s+="Fizz";
-            if (i%5==0)
-                s+="Buzz";
-            if (i%3!=0 && i%5!=0)
-                s+=Integer.toString(i);
-            ret.add(s);
+        if (n>0){
+            if (n%3==0 && n%5==0){
+                ret.addFirst("FizzBuzz");
+            }
+            else if (n%3 ==0 ){
+                ret.addFirst("Fizz");
+            }
+            else if (n%5==0){
+                ret.addFirst("Buzz");
+            }
+            else 
+                ret.addFirst(String.valueOf(n));
+            
+            fizzBuzz(n-1);
         }
         return ret;
     }
