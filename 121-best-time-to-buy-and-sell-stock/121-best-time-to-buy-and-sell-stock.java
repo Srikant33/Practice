@@ -8,7 +8,7 @@ class Solution {
             }
             if (sell < prices[i])
             {   
-                System.out.println(buy+""+sell);
+                // System.out.println(buy+""+sell);
                 sell=prices[i];
                 val=sell-buy;
                 if (max<val){
