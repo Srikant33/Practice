@@ -12,7 +12,6 @@ class Solution {
             f=s;
             s = t;
             t= temp+f+s;
-            // System.out.println(temp + " " +f+" "+s + " "+ t );
             n--;
         }
         return t;
