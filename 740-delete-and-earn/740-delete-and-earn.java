@@ -7,15 +7,11 @@ class Solution {
         for (int i=0 ;i <nums.length; i++){
             hm.put(nums[i], hm.getOrDefault(nums[i], 0)+nums[i]);
         }
-        System.out.println(hm);
         for (int i=0;i <=nums[nums.length-1]; i++){
             temp=two;
             two=Math.max(one+hm.getOrDefault(i, 0), two);
             one=temp;
-            System.out.println(i+" "+one+" "+two);
         }
-        
         return Math.max(one, two);
-        
     }
 }
