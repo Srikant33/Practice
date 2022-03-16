@@ -9,7 +9,6 @@ class Solution {
         for (int i=1 ;i<=max; i++){
             upto[i]= nums[i] + i;
             max=Math.max(max, upto[i]);
-            System.out.println (nums[i]+" "+max);
             if (max >= nums.length-1){
                 return true;
             }
