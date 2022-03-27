@@ -8,10 +8,7 @@ class Solution {
                 if (i-c>=0){
                     amt[i]=Math.min(amt[i], amt[i-c]+1);    
                 }
-                // System.out.print(amt[i]);
-
             }
-            // System.out.println(amt[i]);
         }
         
         if (amt[amount]==amount+1) return -1;
