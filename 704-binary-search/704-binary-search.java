@@ -78,6 +78,6 @@ class Solution {
     public int search(int[] nums, int target) {
         int r=nums.length;
         int l=0;
-        return binarySearch4(nums, l, r-1, target);
+        return binarySearch3(nums, l, r-1, target);
     }
 }
