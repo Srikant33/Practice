@@ -14,9 +14,7 @@ class KthLargest {
                 pq.poll();
                 pq.add(nums[i]);
             }    
-        }
-        System.out.println(pq.peek());
-        
+        } 
     }
     
     public int add(int val) {
