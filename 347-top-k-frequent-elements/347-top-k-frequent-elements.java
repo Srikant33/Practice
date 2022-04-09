@@ -1,17 +1,34 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        HashMap<Integer, Integer> hm= new HashMap<>();
-        for (int num: nums){
-            hm.put(num, hm.getOrDefault(num,0)+1);
+        // O(1) time
+        if (k == nums.length) {
+            return nums;
         }
-        PriorityQueue<Integer> pq= new PriorityQueue((n1,n2)-> hm.get(n2)- hm.get(n1));
-        for (int n: hm.keySet()){
-            pq.add(n);
+        
+        // 1. build hash map : character and how often it appears
+        // O(N) time
+        Map<Integer, Integer> count = new HashMap();
+        for (int n: nums) {
+          count.put(n, count.getOrDefault(n, 0) + 1);
         }
-        int arr[]= new int[k];
-        for (int i=0;i<k; i++){
-            arr[i]=pq.poll();
+
+        // init heap 'the less frequent element first'
+        Queue<Integer> heap = new PriorityQueue<>(
+            (n1, n2) -> count.get(n1) - count.get(n2));
+
+        // 2. keep k top frequent elements in the heap
+        // O(N log k) < O(N log N) time
+        for (int n: count.keySet()) {
+          heap.add(n);
+          if (heap.size() > k) heap.poll();    
         }
-        return arr;
+
+        // 3. build an output array
+        // O(k log k) time
+        int[] top = new int[k];
+        for(int i = k - 1; i >= 0; --i) {
+            top[i] = heap.poll();
+        }
+        return top;
     }
 }
