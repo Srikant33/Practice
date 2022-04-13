@@ -16,10 +16,10 @@ class Solution {
                 }
                 else 
                     low=mid+1;
-                System.out.print(arr1[i]+" "+min+ " ");
+                // System.out.print(arr1[i]+" "+min+ " ");
             }
             
-            System.out.println("");
+            // System.out.println("");
             // if (min>d){
             //     count++;
             // }
