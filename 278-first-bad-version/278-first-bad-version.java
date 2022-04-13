@@ -26,8 +26,6 @@ public class Solution extends VersionControl {
         int a,b;
         int l=0;
         int r=n;
-        //int m;
-        // binarysearch(int l, int r);
         return binarySearch(l,r);
     }
 }
