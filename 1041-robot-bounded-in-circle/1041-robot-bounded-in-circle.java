@@ -35,7 +35,7 @@ class Solution {
                 k=k+4;
             }
         k=k%4;
-        System.out.println(n+" "+e+ " "+k);
+        // System.out.println(n+" "+e+ " "+k);
         return (n==0 && e==0) || k!=0;
     }
 }
