@@ -23,7 +23,7 @@ class Solution {
         }
         
         else if (root.val<low){
-            System.out.println("nul");
+            // System.out.println("nul");
             root=BST(root.right, low, high);
             if (root==null){
                 return null;
