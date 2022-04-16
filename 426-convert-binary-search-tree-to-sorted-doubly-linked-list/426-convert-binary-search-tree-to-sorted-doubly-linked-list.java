@@ -25,7 +25,6 @@ class Solution {
     Node head= new Node(0);
     Node prev;
     Node cur= head;
-    Node next;
     
     // cur=head;
     
