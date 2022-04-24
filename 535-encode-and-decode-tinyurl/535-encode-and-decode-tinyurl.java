@@ -1,13 +1,21 @@
 public class Codec {
-    Map<Integer, String> map = new HashMap<>();
-    int i = 0;
-
+    HashMap<Integer, String > hm = new HashMap<>();
+    int i=0;
+    // Encodes a URL to a shortened URL.
     public String encode(String longUrl) {
-        map.put(i, longUrl);
-        return "http://tinyurl.com/" + i++;
+        i++;
+        hm.put(i,longUrl);
+        // System.out.println(Integer.toString(i));
+        return Integer.toString(i);
     }
 
+    // Decodes a shortened URL to its original URL.
     public String decode(String shortUrl) {
-        return map.get(Integer.parseInt(shortUrl.replace("http://tinyurl.com/", "")));
+        // System.out.println(shortUrl.replace("htpp://tinyurl.com/",""));
+        return hm.get(Integer.parseInt(shortUrl.replace("htpp://tinyurl.com/","")));
     }
 }
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec = new Codec();
+// codec.decode(codec.encode(url));
