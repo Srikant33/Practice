@@ -1,27 +1,33 @@
 class Solution {
-    public boolean backspaceCompare(String S, String T) {
-        int i = S.length() - 1, j = T.length() - 1;
-        int skipS = 0, skipT = 0;
-
-        while (i >= 0 || j >= 0) { // While there may be chars in build(S) or build (T)
-            while (i >= 0) { // Find position of next possible char in build(S)
-                if (S.charAt(i) == '#') {skipS++; i--;}
-                else if (skipS > 0) {skipS--; i--;}
-                else break;
+    public boolean backspaceCompare(String s, String t) {
+        Stack <Character> st1= new Stack<>();
+        Stack <Character> st2= new Stack<>();
+        for (char c : s.toCharArray()){
+            if (c=='#'){
+                if (st1.isEmpty()){
+                    continue;
+                } 
+                st1.pop(); 
             }
-            while (j >= 0) { // Find position of next possible char in build(T)
-                if (T.charAt(j) == '#') {skipT++; j--;}
-                else if (skipT > 0) {skipT--; j--;}
-                else break;
+            else{ 
+                st1.push(c); 
+            } 
+        } 
+        for (char c : t.toCharArray()){ 
+            if (c=='#'){ 
+                if (st2.isEmpty()){
+                    continue;
+                }
+                st2.pop(); 
             }
-            // If two actual characters are different
-            if (i >= 0 && j >= 0 && S.charAt(i) != T.charAt(j))
-                return false;
-            // If expecting to compare char vs nothing
-            if ((i >= 0) != (j >= 0))
-                return false;
-            i--; j--;
+            else{ st2.push(c); }
         }
+        while (!st1.isEmpty() || !st2.isEmpty()){ 
+            // System.out.println(st1.peek()+"" +st2.peek()); 
+            if (st1.isEmpty() || st2.isEmpty() || st1.pop()!=st2.pop()){
+                return false; 
+            }
+        } 
         return true;
     }
 }
