@@ -25,17 +25,7 @@ class Solution {
                 list2= list2.next;
             }
         }
-        while (list1!=null){
-            l.next=list1;
-            l=l.next;
-            list1= list1.next;
-        }
-        
-        while (list2!=null){
-            l.next=list2;
-            l=l.next;
-            list2= list2.next;
-        }
+        l.next = (list1 == null) ? list2 :  list1;
         return ret.next;
     }
 }
