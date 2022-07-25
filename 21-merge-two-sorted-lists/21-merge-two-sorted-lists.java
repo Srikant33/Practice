@@ -24,7 +24,6 @@ class Solution {
                 l=l.next;
                 list2= list2.next;
             }
-            System.out.println(l.val);
         }
         while (list1!=null){
             l.next=list1;
