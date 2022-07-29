@@ -1,47 +1,32 @@
 class CustomStack {
-    int size ;    
-    Stack<Integer> st;
+    LinkedList<Integer> l;
+    int max;
     public CustomStack(int maxSize) {
-        st = new Stack<>();
-        size =maxSize;
+        l = new LinkedList<Integer>();
+        max=maxSize;
     }
     
     public void push(int x) {
-        if (st.size()>=size){
-            return;
+        if (l.size()<max){
+            l.add(x);
         }
-        else {
-            st.push(x);
-        }
-        return;
     }
     
     public int pop() {
-        if (st.isEmpty()){
+        if (l.isEmpty()){
             return -1;
         }
-        else {
-            return st.pop();
-        }
+        return l.removeLast();
     }
     
     public void increment(int k, int val) {
-        if (st.isEmpty()){
-            return;
-        }
-        else {
-            Stack<Integer> s2= new Stack();
-            while (!st.isEmpty()){
-                s2.push(st.pop());
+        for (int i=0; i< l.size(); i++){
+            if( k>0){
+                l.set(i, l.get(i)+val);
+                k--;
             }
-            while (!s2.isEmpty()){
-                if (k>0){
-                    st.push(s2.pop()+val);
-                    k--;
-                }
-                else {
-                    st.push(s2.pop());
-                }
+            else {
+                break;
             }
         }
     }
