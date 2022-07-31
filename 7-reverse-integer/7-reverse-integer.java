@@ -8,7 +8,7 @@ class Solution {
         int ret=0;
         while (x>0){
             if (ret > (Integer.MAX_VALUE - x%10 )/10){
-                System.out.println(ret + " "+ x);
+                // System.out.println(ret + " "+ x);
                 return 0;
             }
             ret =ret *10 + x%10;
