@@ -12,7 +12,7 @@ class Solution {
                 hm.put(s.charAt(i), hm.getOrDefault( s.charAt(i), 0)-1);
                 i++;
             }
-            max= Math.max(j-i+1, max);
+            max= (j-i+1> max)?j-i+1:max;
             j++;
         }
         return max;
