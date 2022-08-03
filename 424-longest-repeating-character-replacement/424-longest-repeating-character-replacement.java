@@ -7,7 +7,7 @@ class Solution {
         
         while (j<s.length()){
             hm.put(s.charAt(j), hm.getOrDefault(s.charAt(j), 0)+1);
-            maxf= Math.max(maxf, hm.get(s.charAt(j)));
+            maxf= (maxf> hm.get(s.charAt(j))) ? maxf : hm.get(s.charAt(j));
             if (j-i+1-maxf > k){
                 hm.put(s.charAt(i), hm.getOrDefault( s.charAt(i), 0)-1);
                 i++;
