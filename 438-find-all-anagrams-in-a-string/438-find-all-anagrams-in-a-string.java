@@ -1,10 +1,10 @@
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
-        
         List<Integer> ret= new ArrayList<>();
         if(p.length()>s.length()){
             return ret;
         }
+        
         HashMap<Character , Integer> hm = new HashMap<>();
         HashMap<Character , Integer> copy = new HashMap<>();
         int length= p.length();
@@ -33,7 +33,6 @@ class Solution {
                 }
             }
             copy.put(c,copy.getOrDefault(c,0)+1);
-            // System.out.println(i +" "+copy);
         }
         if (hm.equals(copy)){
                 ret.add(s.length()-length);
