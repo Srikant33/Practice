@@ -24,7 +24,12 @@ class Solution {
             }
         }
         
-        return String.valueOf(a)+"A"+String.valueOf(b)+"B";
+        StringBuilder sb = new StringBuilder();
+        sb.append(a); 
+        sb.append("A"); 
+        sb.append(b); 
+        sb.append("B");
+        return sb.toString();
         
         
     }
