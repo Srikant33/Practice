@@ -33,7 +33,6 @@ class Solution {
                     q.add(t.right);
                 }
             }
-            System.out.println(sum+" "+count);
             l.add(sum/count);
         }
         
