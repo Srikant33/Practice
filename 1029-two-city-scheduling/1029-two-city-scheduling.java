@@ -1,17 +1,14 @@
 class Solution {
     public int twoCitySchedCost(int[][] costs) {
-        PriorityQueue <Pair<Integer, Integer>> pq = new PriorityQueue<>((a,b) -> (a.getValue()-a.getKey()) - (b.getValue()-b.getKey()));
-        for (int[] c : costs){
-            pq.add(new Pair<>(c[0],c[1]));
-        }
+        Arrays.sort(costs, (a,b)->(a[1]-a[0])-(b[1]-b[0]));
         int count = costs.length/2;
         int sum =0;
-        while (!pq.isEmpty()){
+        for (int i =0; i<costs.length; i++){
             if (count > 0){
-                sum+=pq.poll().getValue();
+                sum+=costs[i][1];
             }
             else{
-                sum+=pq.poll().getKey();
+                sum+=costs[i][0];
             }
             count--;
         }
