@@ -14,7 +14,6 @@ class Solution {
                 pq.poll();
                 pq.add(i[1]); 
             }
-            System.out.println(pq.peek());
         }
         
         return count;
