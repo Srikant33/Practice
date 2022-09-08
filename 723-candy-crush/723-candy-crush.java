@@ -3,20 +3,7 @@ class Solution {
         int r= board.length;
         int c= board[0].length;
         boolean change = false;
-        // System.out.println(r +" "+c);
-        
-//         for (int i=0; i<r ; i++){
-//             for (int j=0; j<c; j++){
-//                 System.out.print(board[i][j]+" ");
-//             }
-//             System.out.println("");
-//         }
-//         System.out.println("");
-        
-//         System.out.println("");
-        
-//         System.out.println("");
-        
+               
         for (int i=0; i<r ; i++){
             for (int j=0; j<c-2; j++){
                 int v = Math.abs(board[i][j]);
@@ -51,7 +38,6 @@ class Solution {
                     if (i!=e){
                         board[e][j]= board[i][j];
                         board[i][j]= 0;
-                        // change =true;
                     }                  
                     e--;
                 }
