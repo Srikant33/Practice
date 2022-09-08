@@ -1,42 +1,34 @@
 class BrowserHistory {
-    String curr;
-    Stack<String> back;
-    Stack<String> forward;
-    
+    int p=-1;
+    List<String> l;
     public BrowserHistory(String homepage) {
-        curr = homepage;
-        back = new Stack<>();
-        forward = new Stack<>();
+        l= new LinkedList<String>();
+        l.add(homepage);
+        // System.out.println(l);
+        p++;
+        // System.out.print(p);
     }
     
     public void visit(String url) {
-        forward.clear();
-        back.push(curr);
-        curr = url;
+        l=l.subList(0,p+1);
+        // System.out.println(l);
+        l.add(url);
+        p++;
+        // System.out.print(p);
     }
     
     public String back(int steps) {
-        while (!back.isEmpty()){
-            forward.push(curr);
-            curr = back.pop();
-            steps--;
-            if (steps == 0){
-                return curr;
-            }
-        }   
-        return curr;
+        p=Math.max(p-steps, 0);
+        // System.out.print(" b "+p);
+        // System.out.println(l);
+        return l.get(p);
     }
     
     public String forward(int steps) {
-        while (!forward.isEmpty()){
-            back.push(curr);
-            curr = forward.pop();
-            steps--;
-            if(steps == 0){
-                return curr;
-            }
-        }
-        return curr;
+        p=Math.min(p+steps, l.size()-1);
+        // System.out.print(" f "+p);
+        return l.get(p);
+        
     }
 }
 
