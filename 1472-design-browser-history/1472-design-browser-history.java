@@ -3,7 +3,7 @@ class BrowserHistory {
     int p=-1;
     List<String> l;
     public BrowserHistory(String homepage) {
-        l= new LinkedList<String>();
+        l= new ArrayList<String>();
         l.add(homepage);
         p++;
         last++;
