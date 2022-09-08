@@ -1,16 +1,22 @@
 class BrowserHistory {
+    int last =-1;
     int p=-1;
     List<String> l;
     public BrowserHistory(String homepage) {
         l= new LinkedList<String>();
         l.add(homepage);
         p++;
+        last++;
     }
     
     public void visit(String url) {
-        l=l.subList(0,p+1);
-        l.add(url);
-        p++;
+        if(++p<l.size()){
+            l.set(p, url);
+        }
+        else {
+            l.add(url);
+        }
+        last=p;
     }
     
     public String back(int steps) {
@@ -19,7 +25,7 @@ class BrowserHistory {
     }
     
     public String forward(int steps) {
-        p=Math.min(p+steps, l.size()-1);
+        p=Math.min(p+steps, last);
         return l.get(p);
         
     }
