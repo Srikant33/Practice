@@ -1,19 +1,13 @@
 class Solution {
     public int minSteps(String s, String t) {
-        HashMap<Character, Integer> hs = new HashMap<>();
-        for (char c: s.toCharArray()){
-            hs.put(c, hs.getOrDefault(c, 0)+1);
-        }
-        int count =0;
-        for (char c: t.toCharArray()){
-            if (hs.containsKey(c) && hs.get(c)>0 ){
-                hs.put(c, hs.get(c)-1);
-            }
-            else{
-                count++;
-            }
-        }
+        int[] cs = new int[26];
+        int[] ct = new int[26];
+        for (char c:s.toCharArray()) cs[c-'a']++;
+        for (char c:t.toCharArray()) ct[c-'a']++;
         
-        return count;
+        int res=0;
+        for (int i=0; i<26; i++) res+= Math.max(cs[i]-ct[i],0);
+        
+        return res;
     }
 }
