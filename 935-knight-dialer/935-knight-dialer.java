@@ -15,7 +15,6 @@ class Solution {
             sum= (sum + helper(n-1, i))%1000000007;
         }
         dp.put(new Pair<>(n, prev), sum);
-        // System.out.println(sum);
         return sum;
     }
     
@@ -34,8 +33,6 @@ class Solution {
         long total=0;
         for (int i=0; i<10; i++){
             total = (total + helper(n, i))%1000000007;
-            // System.out.println(total);
-            // total = (long)(total%(Math.pow(10,9)+7));
         }
         
         return (int)total;
