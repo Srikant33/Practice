@@ -1,8 +1,8 @@
 class Solution {
     public String[] reorderLogFiles(String[] logs) {
-        PriorityQueue<String> pq= new PriorityQueue<>((a,b)-> (a.split(" ",2)[1].compareTo(b.split(" ",2)[1])==0)? b.split(" ",2)[0].compareTo(a.split(" ",2)[0])
-                                                      : b.split(" ",2)[1].compareTo(a.split(" ",2)[1]));
-        
+        // PriorityQueue<String> pq= new PriorityQueue<>((a,b)-> (a.split(" ",2)[1].compareTo(b.split(" ",2)[1])==0)? b.split(" ",2)[0].compareTo(a.split(" ",2)[0])
+                                                      // : b.split(" ",2)[1].compareTo(a.split(" ",2)[1]));
+        List<String> lex= new LinkedList<>();
         List<String> ret= new LinkedList<>();
         
         for (String log: logs){
@@ -11,12 +11,15 @@ class Solution {
                 ret.add(log);
             }
             else {
-                pq.add(log);
+                lex.add(log);
             }
         }
         
-        while (!pq.isEmpty()){
-            ret.add(0,pq.poll());
+        Collections.sort(lex,(a,b)-> (a.split(" ",2)[1].compareTo(b.split(" ",2)[1])==0)? b.split(" ",2)[0].compareTo(a.split(" ",2)[0])
+                                                      : b.split(" ",2)[1].compareTo(a.split(" ",2)[1]) );
+        
+        for (String s:lex){
+            ret.add(0,s);
         }
         
         return ret.toArray(new String[logs.length]);
