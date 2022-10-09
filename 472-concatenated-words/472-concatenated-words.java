@@ -5,7 +5,7 @@ class Solution {
         }
         // System.out.print(" "+s);
         for (int i=1; i<s.length(); i++){
-            if (hs.contains(s.substring(0,i)) && !s.substring(0,i).equals(original) && (helper(s.substring(i, s.length()), hs, original) || hs.contains(s.substring(i,s.length())))){
+            if (hs.contains(s.substring(0,i)) && !s.substring(0,i).equals(original) && (hs.contains(s.substring(i,s.length())) || helper(s.substring(i, s.length()), hs, original) )){
                 return true;
             }
         }
@@ -22,11 +22,9 @@ class Solution {
         
         List<String> ret = new LinkedList<>();
         for (String word:words){
-            // System.out.println(word);
             if (helper (word, hs , word)){
                 ret.add(word);
             }
-            // System.out.println(" -------------- ");
 
         }
         
