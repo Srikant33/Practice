@@ -14,7 +14,7 @@ class Solution {
                 count++;
             }
         }
-        System.out.println(count);
+        
         for (int i: hm.values()){
             count+=i;
         }
