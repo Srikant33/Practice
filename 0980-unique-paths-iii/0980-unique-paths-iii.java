@@ -11,10 +11,8 @@ class Solution {
         
         if (grid[i][j] == grid[end[0]][end[1]] && count == total){
             ans++;
-            // System.out.println("i bvabababa vava va av a va va va count");
             return;
         }
-        // System.out.println(i + " "+ j + " "+count );
         grid[i][j] =-1;
         helper (grid, i+1 , j, count+1);
         helper (grid, i-1 , j, count+1); 
