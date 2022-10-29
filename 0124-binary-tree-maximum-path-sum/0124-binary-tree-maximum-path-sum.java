@@ -23,7 +23,7 @@ class Solution {
         int left = helper(root.left);
         int right = helper(root.right);
         
-        max= Collections.max(Arrays.asList(root.val, root.val+left, root.val+right, root.val+left+right, max));
+        max= Math.max(root.val+left+right, max);
         
         return root.val+Math.max(left, right)>0 ?root.val+Math.max(left, right) :0 ;
     }
