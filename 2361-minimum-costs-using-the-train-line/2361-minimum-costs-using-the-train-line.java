@@ -18,9 +18,6 @@ class Solution {
             edp[i]= Math.min(express[i]+expressCost+rdp[i-1], express[i]+edp[i-1]);
             
             dp[i]= Math.min(rdp[i], edp[i]);
-            
-            
-            // System.out.println(rdp[i]+ " "+edp[i]);
         }
         
         return dp;
