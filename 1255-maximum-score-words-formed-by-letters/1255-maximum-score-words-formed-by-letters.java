@@ -8,7 +8,6 @@ class Solution {
             return score;
         } 
         boolean flag = true;
-        // System.out.println(words[curr]+ " "+freq+ "  "+score);
         for (Map.Entry<Character, Integer> e: wfreq.get(words[curr]).entrySet()){
             if(!freq.containsKey(e.getKey()) || freq.get(e.getKey())-wfreq.get(words[curr]).get(e.getKey())<0){
                 flag= false;      
@@ -19,7 +18,6 @@ class Solution {
                 newfreq.put(e.getKey(), freq.get(e.getKey())-wfreq.get(words[curr]).getOrDefault(e.getKey(),0));
         }
         
-        // System.out.println(words[curr]+ " "+freq+ " "+ newfreq+ " "+score);
         for (int i=curr+1; i<=words.length; i++ ){
             if (flag){
                Gmax=Math.max(Gmax, Math.max(NewScore(words, i, score, freq), NewScore(words, i, score+wei.get(words[curr]), newfreq)));
