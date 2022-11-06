@@ -7,10 +7,6 @@ class Solution {
         int max=1, min=1, ret=nums[0];
 
         for (int num: nums){
-            if (num==0){
-                max=1;
-                min=1;
-            }
             int first = max* num;
             int second = min*num;
             
