@@ -10,8 +10,8 @@ class Solution {
             int first = max* num;
             int second = min*num;
             
-            max= Collections.max(Arrays.asList(first, second, num));
-            min = Collections.min(Arrays.asList(first, second, num));
+            max= Math.max(first, Math.max(second, num));
+            min = Math.min(first, Math.min(second, num));
             if (max>ret){
                 ret=max;
             }
