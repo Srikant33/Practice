@@ -5,7 +5,6 @@ class Solution {
         int maxFruit=0;
         while (r<fruits.length){
             
-            
             if (!hm.containsKey(fruits[r])){
                 while (hm.size()==2){
                     hm.put(fruits[l], hm.get(fruits[l])-1);
@@ -18,7 +17,9 @@ class Solution {
             
             hm.put(fruits[r], hm.getOrDefault(fruits[r],0)+1);
             
-            maxFruit=Math.max(maxFruit, r-l+1);
+            if (r-l+1 > maxFruit){
+                maxFruit=r-l+1;
+            }
             r++;
         }
         return maxFruit;
