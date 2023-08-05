@@ -1,28 +1,28 @@
 class MinStack {
-    Stack<Pair<Integer, Integer>> st;
+    LinkedList<Pair<Integer, Integer>> l;
     public MinStack() {
-        st = new Stack<>();
+        l = new LinkedList<>();
     }
     
     public void push(int val) {
-        if (st.isEmpty()){
-            st.push(new Pair<>(val, val));
+        if (l.size()==0){
+            l.addFirst(new Pair<>(val, val));
         }
         else{
-            st.push(new Pair<>(val, Math.min(getMin(), val)));
+            l.addFirst(new Pair<>(val, Math.min(getMin(), val)));
         }
     }
     
     public void pop() {
-        st.pop();
+        l.removeFirst();
     }
     
     public int top() {
-        return st.peek().getKey();
+        return l.peekFirst().getKey();
     }
     
     public int getMin() {
-        return st.peek().getValue();
+        return l.peekFirst().getValue();
     }
 }
 
