@@ -1,25 +1,30 @@
 class Solution {
     public int[] distinctDifferenceArray(int[] nums) {
-        //burute force approach with HashSet\
+        //burute force approach 2 with O(N) with HashSet\
 
       
         int[] res = new int[nums.length];
 
         //loop through the list
-        for (int i=0;i < nums.length; i++){
-            HashSet<Integer> pre = new HashSet<>();        
-            HashSet<Integer> suf = new HashSet<>();
-            //looping pre 
-            for (int j=0; j<=i; j++){
-                pre.add(nums[j]);
-            }
-            //looping post
-            for (int j=i+1; j<nums.length; j++){
-                suf.add(nums[j]);
-            }
-            res[i]= pre.size()- suf.size();
-        }
+        HashSet<Integer> pre = new HashSet<>();        
+        HashSet<Integer> suf = new HashSet<>();
+
+        //adding 2 arrays for storing pre and suff
+        // int[] preArr = new int[nums.length];
+        int[] sufArr = new int[nums.length];
         
+        //LOOPING suff       
+        for (int i=nums.length-1; i>=0; i--){
+            sufArr[i]=suf.size();
+            suf.add(nums[i]);
+        }
+
+        //looping pre 
+        for (int i=0; i<nums.length; i++){
+            pre.add(nums[i]);
+            res[i]= pre.size()- sufArr[i];
+        }
+            
         //return res
         return res;
     }
