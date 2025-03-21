@@ -19,8 +19,10 @@ class Solution {
         //make String from stack
         StringBuilder sb = new StringBuilder();  
         while(!st.isEmpty()){
-            sb.insert(0, st.pop());
+            sb.append(st.pop());
         }
+
+        sb.reverse();
 
         return sb.toString();
     }
