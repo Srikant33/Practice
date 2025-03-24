@@ -1,6 +1,8 @@
 class RecentCounter {
     //declairing global queue 
     Queue<Integer> q;
+    //setting global size
+    int size=0;
 
     //initialization 
     public RecentCounter() {
@@ -10,16 +12,16 @@ class RecentCounter {
     public int ping(int t) {
         //add element
         q.add(t);
+        size++;
         
         // remove any that is older tham 3000 ms 
         while(q.peek()<t-3000){
             q.remove();
+            size--;
         }
 
         // return the number of elemnts in queue 
-        return q.size();
-
-        
+        return size;
     }
 }
 
