@@ -12,8 +12,8 @@ class RecentCounter {
         q.add(t);
         
         // remove any that is older tham 3000 ms 
-        while(!q.isEmpty() && q.peek()<t-3000){
-            q.poll();
+        while(q.peek()<t-3000){
+            q.remove();
         }
 
         // return the number of elemnts in queue 
