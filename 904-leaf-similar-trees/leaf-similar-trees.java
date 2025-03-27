@@ -15,25 +15,31 @@
  */
 class Solution {
     //helper 
-    public String roots(TreeNode root, String s){
+    public void roots(TreeNode root, List<Integer> list){
         //if root
         if (root.left==null && root.right == null){
-            return s+" "+String.valueOf(root.val);
+            list.add(root.val);
         }
         //pre orfer 
         if (root.left!=null){
-            s=roots(root.left, s);
+            roots(root.left, list);
         }
         if (root.right!=null){
-            s=roots(root.right, s);
+            roots(root.right, list);
         }
-
-        return s;
     }
 
     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+
         // trtaverse and find the roots- save in string.. if same they are true
         //compair
-        return roots(root1, "").equals(roots(root2, ""));
+        List<Integer> l1= new LinkedList<>();
+        List<Integer> l2= new LinkedList<>();
+        
+        //calling functiuon 
+        roots(root1, l1);
+        roots(root2, l2);
+
+        return l1.equals(l2);
     }
 }
