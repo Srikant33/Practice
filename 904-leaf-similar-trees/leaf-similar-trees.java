@@ -33,8 +33,8 @@ class Solution {
 
         // trtaverse and find the roots- save in string.. if same they are true
         //compair
-        List<Integer> l1= new LinkedList<>();
-        List<Integer> l2= new LinkedList<>();
+        List<Integer> l1= new ArrayList<>();
+        List<Integer> l2= new ArrayList<>();
         
         //calling functiuon 
         roots(root1, l1);
