@@ -7,11 +7,15 @@ class Solution {
 
         /// if they do longest string that divides will be the answer 
         // min length string 
-        int min = Math.min (str1.length(), str2.length());
+        int l1 = str1.length();
+        int l2 = str2.length();
+        int min = Math.min (l1, l2);
         int res=0;
+        
+
         // looping through all possible subfactors 
         for ( int i=1; i<=min; i++){
-            if (str1.length()%i==0 && str2.length()%i==0){
+            if (l1%i==0 && l2%i==0){
                 res = i;
             }
         }
