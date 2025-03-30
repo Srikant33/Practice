@@ -11,8 +11,8 @@ class Solution {
         List<Boolean> res= new LinkedList<>();
 
         //chck if adding extra will be greater than or eqal to max
-        for (int c: candies ){
-            res.add(c+extraCandies >= max);             
+        for (int i=0; i<candies.length; i++){
+            res.add(candies[i]+extraCandies >= max);             
         }
 
         //return res
