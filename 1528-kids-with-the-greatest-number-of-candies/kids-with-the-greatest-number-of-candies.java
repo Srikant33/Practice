@@ -8,7 +8,7 @@ class Solution {
 
         //make boolean array 
         // boolean[] res = new boolean[candies.length];
-        List<Boolean> res= new LinkedList<>();
+        List<Boolean> res= new ArrayList<>();
 
         //chck if adding extra will be greater than or eqal to max
         for (int i=0; i<candies.length; i++){
