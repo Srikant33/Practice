@@ -1,29 +1,21 @@
 class Solution {
     public String gcdOfStrings(String str1, String str2) {
-        //shorter string 
-        String s = str1.length()>str2.length()?str2:str1;
-        //malke a substring lenght that is a divisor
-        int max= 0;
+        //finding if both will have a common divisor 
+        if (!(str1+str2).equals(str2+str1)){
+            return "";
+        }
 
-        // looping through prefix
-        for (int i =0; i<=s.length(); i++){
-            // make copy of string 1 and 2 to replace 
-            String s1= str1;
-            String s2= str2;
-            
-            
-            //replace prefix substring with blank  
-            s1=s1.replace(s.substring(0,i),"");
-            s2=s2.replace(s.substring(0,i),"");
-
-            // System.out.println(s1);
-            //if lenghgt of both is 0 ists a common denominator 
-            if (s1.length()==0 && s2.length()==0){
-                max = i;
+        /// if they do longest string that divides will be the answer 
+        // min length string 
+        int min = Math.min (str1.length(), str2.length());
+        int res=0;
+        // looping through all possible subfactors 
+        for ( int i=1; i<=min; i++){
+            if (str1.length()%i==0 && str2.length()%i==0){
+                res = i;
             }
         }
 
-        //return string that is divisor
-        return s.substring(0,max);
+        return str1.substring(0,res);
     }
 }
