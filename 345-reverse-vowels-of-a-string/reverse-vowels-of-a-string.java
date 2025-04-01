@@ -23,7 +23,7 @@ class Solution {
                 //swap
                 temp = s.charAt(start);
                 sb.replace(start, start+1, s.charAt(end)+"");
-                System.out.println(end);
+                // System.out.println(end);
                 sb.replace(end, end+1, temp+"");
                 start++;
                 end--;
