@@ -1,46 +1,40 @@
 class Solution {
     public String reverseVowels(String s) {
-        // declair the vowels 
-        HashSet<Character> hs = new HashSet<>(Arrays.asList('A','E','I','O','U','a','e','i','o','u'));
+        // string to char arrya 
+        // replace with 2 pointers
+        
+        //boolean of is vowel 
+        boolean[] vowel = new boolean[128];
 
-        // have a 2 pointer approach for right and left pointer 
-        // when we have vowels in both sides we swithch
+        for (char c: "aeiouAEIOU".toCharArray()){
+            vowel[c]=true;
+        }
 
-        int start = 0;
+        //declaring pointers
+        int start =0;
         int end = s.length()-1;
-        char temp;
-        StringBuilder sb= new StringBuilder();
-        sb.append(s);
 
-        // looping through the string
-        while (start < end){
-            if (hs.contains(s.charAt(start)) && hs.contains(s.charAt(end))){
-                if (s.charAt(start)== s.charAt(end)){
-                    start++;
-                    end--;
-                    continue;
-                }
+        //string to char array
+        char[] c = s.toCharArray();
+
+        while (start<end){
+            while (start<end && !vowel[c[start]]){
+                start++;
+            }
+            while (start<end && !vowel[c[end]]){
+                end--;
+            }
+            if (start<end){
                 //swap
-                temp = s.charAt(start);
-                sb.replace(start, start+1, s.charAt(end)+"");
-                // System.out.println(end);
-                sb.replace(end, end+1, temp+"");
+                char temp = c[start];
+                c[start]=c[end];
+                c[end]=temp;
                 start++;
                 end--;
             }
-            else{
-                // move till both are vowels
-                if (!hs.contains(s.charAt(start))){
-                    start++;
-                }
-                if (!hs.contains(s.charAt(end))){
-                    end--;
-                }
-            }
-
         }
 
-        //return new string
-        return sb.toString();
+        return String.valueOf(c);
+
     }
 }
